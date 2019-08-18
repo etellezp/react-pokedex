@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PokemonList from './PokemonList'
 import axios from 'axios'
 
 const Pokedex = () => {
@@ -13,7 +14,7 @@ const Pokedex = () => {
     <>
       <h1>Pokedex</h1>
       {pokemons.map(pokemon => (
-        <p key={pokemon.name}>{pokemon.name}</p>
+        <PokemonList key={pokemon.name} pokemon={pokemon} />
       ))}
     </>
   )
