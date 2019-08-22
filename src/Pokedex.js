@@ -12,10 +12,9 @@ const Pokedex = () => {
 
   return (
     <>
-      <h1>Pokedex</h1>
-      {pokemons && pokemons.map(pokemon => (
-        <PokemonList key={pokemon.name} pokemon={pokemon} />
-      ))}
+      <h1>POKEDEX</h1>
+
+      {pokemons.length > 0 ? pokemons.map(pokemon => <PokemonList key={pokemon.name} pokemon={pokemon}/>) : "LOADING..."}
     </>
   )
 }
