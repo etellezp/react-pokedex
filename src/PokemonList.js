@@ -14,8 +14,9 @@ const PokemonList = ({ pokemon }) => {
       {
         pokemonInfo.data !== null ?
         <div>
-        <img src={pokemonInfo.data.sprites.front_default} alt={pokemonInfo.data.name}/>
-        <p>{pokemonInfo.data.name}</p>
+          <img src={pokemonInfo.data.sprites.front_default} alt={pokemonInfo.data.name}/>
+          <p>{pokemonInfo.data.name}</p>
+          <button>Learn More</button>
         </div>
         :
         "LOADING..."
