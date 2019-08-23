@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const PokemonList = ({ pokemon }) => {
@@ -14,9 +15,18 @@ const PokemonList = ({ pokemon }) => {
       {
         pokemonInfo.data !== null ?
         <div>
-          <img src={pokemonInfo.data.sprites.front_default} alt={pokemonInfo.data.name}/>
+          <img
+            src={pokemonInfo.data.sprites.front_default} alt={pokemonInfo.data.name}
+          />
           <p>{pokemonInfo.data.name}</p>
-          <button>Learn More</button>
+
+          <Link
+            to={{
+              pathname: `/pokemon/${pokemonInfo.data.id}`,
+              state: {pokemonInfo: pokemonInfo}
+            }}>
+            View Pokemon
+          </Link>
         </div>
         :
         "LOADING..."

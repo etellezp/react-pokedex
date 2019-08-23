@@ -1,6 +1,7 @@
 import React from 'react'
 
-function PokeCard() {
+function PokeCard(props) {
+  console.log("pokemonInfo", props.location.state.pokemonInfo.data)
   return (
     <h1>Hello from PokeCard</h1>
   )
