@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
 import axios from 'axios'
 
 const PokemonList = ({ pokemon }) => {
@@ -27,6 +28,7 @@ const PokemonList = ({ pokemon }) => {
             }}>
             View Pokemon
           </Link>
+          <Button color="primary">Test</Button>
         </div>
         :
         "LOADING..."
