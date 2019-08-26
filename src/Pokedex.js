@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PokemonList from './PokemonList'
+import { Container, Col, Row } from 'reactstrap'
+import './Pokedex.css'
 import axios from 'axios'
 
 const Pokedex = () => {
@@ -13,8 +15,24 @@ const Pokedex = () => {
   return (
     <>
       <h1>POKEDEX</h1>
-
-      {pokemons.length > 0 ? pokemons.map(pokemon => <PokemonList key={pokemon.name} pokemon={pokemon}/>) : "LOADING..."}
+      <Container>
+        <Row className="text-center">
+          {
+            pokemons.length > 0 ?
+            pokemons.map(
+              pokemon =>
+              <Col className="mb-3" lg="2" md="4" xs="6">
+                <PokemonList
+                  key={pokemon.name}
+                  pokemon={pokemon}
+                />
+              </Col>
+            )
+            :
+            "LOADING..."
+          }
+        </Row>
+      </Container>
     </>
   )
 }

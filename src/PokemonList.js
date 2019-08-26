@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from 'reactstrap'
+import { Card, CardImg, CardBody, CardTitle, Button } from 'reactstrap'
 import axios from 'axios'
 
 const PokemonList = ({ pokemon }) => {
@@ -12,28 +12,35 @@ const PokemonList = ({ pokemon }) => {
   }, [pokemon.url])
 
   return(
-    <div>
+    <>
       {
         pokemonInfo.data !== null ?
         <div>
-          <img
-            src={pokemonInfo.data.sprites.front_default} alt={pokemonInfo.data.name}
-          />
-          <p>{pokemonInfo.data.name}</p>
-
-          <Link
-            to={{
-              pathname: `/pokemon/${pokemonInfo.data.id}`,
-              state: {pokemonInfo: pokemonInfo}
-            }}>
-            View Pokemon
-          </Link>
-          <Button color="primary">Test</Button>
+          <Card>
+            <CardImg
+              src={pokemonInfo.data.sprites.front_default} alt={pokemonInfo.data.name}
+            />
+            <CardBody>
+              <CardTitle>
+                {pokemonInfo.data.name}
+              </CardTitle>
+              <Button>
+                <Link
+                  className="text-white"
+                  to={{
+                    pathname: `/pokemon/${pokemonInfo.data.id}`,
+                    state: {pokemonInfo: pokemonInfo}
+                  }}>
+                  View Pokemon
+                </Link>
+              </Button>
+            </CardBody>
+          </Card>
         </div>
         :
         "LOADING..."
       }
-    </div>
+    </>
   )
 }
 
